@@ -36,14 +36,14 @@ describe('Endpoints', () => {
     const phones = await request(server).get('/api/v1/phones?limit=1&searchText=' + specificPhone.type)
     expect(phones.statusCode).toEqual(200)
     expect(phones.body.arr.length).toEqual(1)
-    expect(phones.body.arr[0].type).toEqual(specificPhone.type)
+    expect(phones.body.arr[0].type).toContain(specificPhone.type)
   })
 
   it('should check filter By Color', async () => {
     const phones = await request(server).get('/api/v1/phones?filterByColor=' + specificPhone.color)
     expect(phones.statusCode).toEqual(200)
     expect(phones.body.arr.length).toBeGreaterThan(0)
-    expect(phones.body.arr[0].color).toEqual(specificPhone.color)
+    expect(phones.body.arr[0].color).toContain(specificPhone.color)//
   })
 
   it('should get error not valid id', async () => {

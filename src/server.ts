@@ -3,7 +3,6 @@ import { routes } from './routes';
 import compress from 'compression';
 import helmet from 'helmet';
 import mongoose from 'mongoose';
-//import {fillInDb} from './script/fill-in-db'
 
 export const setUpServer = async () => {
     return await startExpress(await connectDB())
@@ -22,7 +21,6 @@ export const connectDB = async() => {
 }
 
 export const startExpress = async (mongoConnection) => {
-    //fillInDb()
     let app: express.Express = express();
     const port = 8000;
     

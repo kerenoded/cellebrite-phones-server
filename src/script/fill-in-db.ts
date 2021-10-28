@@ -1,9 +1,11 @@
+import { connectDB } from './../server';
 import { Colors } from './../modules/phones/models/colors';
 import * as phonesService from '../modules/phones/services';
 import { createHash } from 'crypto';
 
 export const fillInDb = async () => {
     
+    let mongoConnection = await connectDB()
     for(let i = 0 ; i < 10000 ; i++){
         let randomStr1 = (Math.random() + 1).toString(36).substring(7);
         let randomStr2 = (Math.random() + 1).toString(36).substring(7);
@@ -22,8 +24,11 @@ export const fillInDb = async () => {
             console.error('couldnt add phone', err)
           }
     }
+    mongoConnection.disconnect()
 }
 
 function hash(string) {
     return createHash('sha256').update(string).digest('hex');
-  }
+}
+
+fillInDb()

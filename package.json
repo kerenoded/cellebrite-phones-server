@@ -5,6 +5,7 @@
   "main": "dist/src/app.js",
   "scripts": {
     "start": "tsc && node dist/src/app.js",
+    "addDataToDB": "tsc && node dist/src/script/fill-in-db.js",
     "build": "tsc",
     "test": "jest"
   },

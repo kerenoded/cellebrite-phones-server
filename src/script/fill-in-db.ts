@@ -4,7 +4,7 @@ import { createHash } from 'crypto';
 
 export const fillInDb = async () => {
     
-    for(let i = 0 ; i < 1000 ; i++){
+    for(let i = 0 ; i < 10000 ; i++){
         let randomStr1 = (Math.random() + 1).toString(36).substring(7);
         let randomStr2 = (Math.random() + 1).toString(36).substring(7);
         var hrTime = process.hrtime()
